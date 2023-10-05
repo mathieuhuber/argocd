@@ -1,0 +1,29 @@
+
+
+replicaCount: 1
+
+image:
+  repository: mathieuhuber/argocd
+  pullPolicy: IfNotPresent
+  tag: "latest"
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  create: True
+  annotations: {}
+  name: ""
+service:
+  type: ClusterIP
+  port: 5000
+ingress:
+  enabled: True
+  className: ""
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  hosts:
+    - host: flask-dev.157.230.76.133.nip.io
+      paths:
+        - path: /tasks
+          pathType: Prefix
+
